@@ -1,0 +1,20 @@
+.pergunta {
+    width: 100%;
+    display: flex;
+    margin-bottom: 100px;
+    gap: 100px;
+}
+
+.pergunta .text {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    background-color: red;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 0 15px;
+}
+
+.logo img {
+    width: 400px;
+}
