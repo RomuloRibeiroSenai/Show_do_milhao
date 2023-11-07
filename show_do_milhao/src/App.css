@@ -10,18 +10,18 @@ body{
 }
 .container{
   width: 80%;
-  height: 100%;  
-  margin: 90px auto;
+  padding: 40px 0;
+
+  margin: 0 auto;
 }
 
-.resposta{
-  width: 100%;
-}
-
-.opcoes {
+.opcoes{
   width: 50%;
 }
 
 .ajuda {
+  display: flex;
+  flex-direction: column;
   width: 50%;
+
 }
