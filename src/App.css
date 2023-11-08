@@ -1,0 +1,27 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  height: 100vh;
+  background: linear-gradient(#1354A5 0%, #4d79ca 33.33%, #396ed1 66.67%, #921ac2 100%);
+}
+.container{
+  width: 80%;
+  padding: 40px 0;
+
+  margin: 0 auto;
+}
+
+.opcoes{
+  width: 50%;
+}
+
+.ajuda {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  
+}
