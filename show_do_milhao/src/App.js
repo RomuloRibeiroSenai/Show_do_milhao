@@ -14,6 +14,7 @@ function App() {
   const i = [1, 2, 3, 4].sort(() => Math.random() - 0.5);
   const j = [0, 1, 2].sort(() => Math.random() - 0.5);
   let certa = pergunta_facil[j[1]][1];
+  console.log(certa)
 
   return (
     <div className='container'>
