@@ -13,23 +13,24 @@ function App() {
 
   const i = [1, 2, 3, 4].sort(() => Math.random() - 0.5);
   const j = [0, 1, 2].sort(() => Math.random() - 0.5);
+  let certa = pergunta_facil[j[1]][1];
 
   return (
     <div className='container'>
 
       <div className='pergunta'>
 
-        <Pergunta pergunta={pergunta_facil[j[1]][0]}/>
+        <Pergunta pergunta={pergunta_facil[j[1]][0]} />
 
       </div>
 
 
       <div className='resposta'>
         <div className='opcoes'>
-          <Resposta texto={pergunta_facil[j[1]][i[0]]}/>
-          <Resposta texto={pergunta_facil[j[1]][i[1]]}/>
-          <Resposta texto={pergunta_facil[j[1]][i[2]]}/>
-          <Resposta texto={pergunta_facil[j[1]][i[3]]}/>
+          <Resposta texto={pergunta_facil[j[1]][i[0]]} resposta={certa}/>
+          <Resposta texto={pergunta_facil[j[1]][i[1]]} resposta={certa}/>
+          <Resposta texto={pergunta_facil[j[1]][i[2]]} resposta={certa}/>
+          <Resposta texto={pergunta_facil[j[1]][i[3]]} resposta={certa}/>
           
         </div>
 
