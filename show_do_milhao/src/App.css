@@ -1,17 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 20px;
 }
 
 body{
   height: 100vh;
-  background: linear-gradient(#1354A5 0%, #4d79ca 33.33%, #396ed1 66.67%, #921ac2 100%);
+  background: linear-gradient(#1354A5 0%, #4d79ca 33.33%, #396ed1 66.67%, #1a1dc2 100%);
 }
 .container{
   width: 80%;
   padding: 40px 0;
-
   margin: 0 auto;
 }
 
@@ -23,5 +26,16 @@ body{
   display: flex;
   flex-direction: column;
   width: 50%;
-  
+}
+.bt_confirmar{
+  display: flex;
+  justify-content: center;
+}
+.bt_confirmar button {
+  padding: 15px 20px;
+  background-color: rgb(236, 75, 75);
+  color:white;
+  border:none;
+  border-radius: 5px;
+
 }

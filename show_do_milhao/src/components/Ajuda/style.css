@@ -2,7 +2,8 @@
 .ajuda01{
     display: flex;
     flex-direction: column;
-    gap: 50pxc;
+    gap: 50px;
+    margin-left: 75px;
 }
 
 .opcoes_ajuda {
@@ -35,8 +36,7 @@
 
 .premiacao {
     display: flex;
-    justify-content: center;
-    gap: 100px;
+    justify-content: space-between;
     margin-top: 40px;
 }
 
@@ -48,11 +48,7 @@
 }
 
 .btn_parar {
-   
-
     display: flex;
-
-
 }
 
 .btn_parar button{

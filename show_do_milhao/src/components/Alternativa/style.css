@@ -1,0 +1,44 @@
+@keyframes piscar {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+.resposta {
+    display: flex;
+    justify-content: space-between;
+}
+
+.vermelho{
+    /* background-color: red; */
+    background: linear-gradient(#fc3f60 0%, #dd251a 33.33%, #b32e3c 66.67%, #fc3f60 100%);
+    margin-bottom: 40px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    margin-right: 20px;
+}
+.laranja{
+    background-color: orange;
+    margin-bottom: 40px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    margin-right: 20px;
+}
+
+.verde{
+    background-color:green;
+    margin-bottom: 40px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    margin-right: 20px;
+    animation: piscar 0.8s infinite;
+
+}
