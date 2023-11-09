@@ -1,0 +1,23 @@
+.pergunta {
+    width: 100%;
+    display: flex;
+    margin-bottom: 100px;
+    gap: 100px;
+}
+
+.pergunta .text {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    background: linear-gradient(#fc3f60 4%, #dd251a 40%, #b32e3c 56%);
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 0 15px;
+}
+
+.logo img {
+    width: 400px;
+}
+.pergunta_titulo{
+    font-size: 50px;
+}
