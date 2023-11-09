@@ -1,3 +1,11 @@
+@keyframes piscar {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
 .resposta {
     display: flex;
     justify-content: space-between;
@@ -31,5 +39,6 @@
     height: 50px;
     width: 100%;
     margin-right: 20px;
+    animation: piscar 0.8s infinite;
 
 }
