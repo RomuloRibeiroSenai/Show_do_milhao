@@ -6,7 +6,7 @@ export default function Pergunta(props) {
         <>
         <div className="pergunta">
             <div className="text">
-                <h1>{props.pergunta}</h1>
+                <h1 className='pergunta_titulo'>{props.pergunta}</h1>
             </div>
             <div className="logo">
                 <img src={logo} alt="" />

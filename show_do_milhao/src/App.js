@@ -24,29 +24,27 @@ function App() {
   const [perguntaAtual, setPerguntaAtual] = useState(0);
   const [alternativaSelecionada, setAlternativaSelecionada] = useState(null);
   const [indexSelecionado, setIndexSelecionado] = useState(null);
-  const [alternativaCorreta, setAlternativaCorreta] = useState(null);
+  const [alternativaCorreta, setAlternativaCorreta] = useState(false);
+  
 
 
   function aoConfirmar() {
     if (alternativaSelecionada == pergunta.respostaCerta) {
-      setAlternativaCorreta(true);
+      
       console.log("Parabéns vc acertou!")
     } else {
       console.log(alternativaSelecionada == pergunta.respostaCerta)
     }
-  }
 
-  //teste
+    setAlternativaCorreta(pergunta.respostaCerta);
+  }
 
   function aoSelecionar(opcaoSelecionada) {
     console.log(opcaoSelecionada);
     setAlternativaSelecionada(opcaoSelecionada);
+    console.log(alternativaCorreta)
   }
 
-  // const i = [1, 2, 3, 4].sort(() => Math.random() - 0.5);
-  // const j = [0, 1, 2].sort(() => Math.random() - 0.5);
-  // let certa = pergunta_facil[j[1]][1];
-  // console.log(certa)
 
   return (
     <div className='container'>
@@ -64,10 +62,11 @@ function App() {
               index={index}
               onClick={aoSelecionar}
               alternativaSelecionada={alternativaSelecionada}
-              alternativaCerta={alternativaCorreta} />
+              alternativaCorreta={alternativaCorreta} />
           ))}
-
+          <div className='bt_confirmar'>
           <button onClick={aoConfirmar}>Confirmar</button>
+          </div>
         </div>
 
         <div className='ajuda'>

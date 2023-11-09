@@ -7,14 +7,14 @@ export default function Alternativa(props) {
 
     // Use useEffect para monitorar a prop alternativaSelecionada
     useEffect(() => {
-        if (props.alternativa === props.alternativaSelecionada) {
+        if (props.alternativa === props.alternativaSelecionada && props.alternativaCorreta != props.alternativa) {
             setCor('laranja');
-        } else if (props.alternativaCerta == true) {
+        } else if (props.alternativaCorreta == props.alternativa) {
             setCor('verde');
         } else {
             setCor('vermelho');
         }
-    }, [props.alternativaSelecionada, props.alternativa]);
+    }, [props.alternativaSelecionada, props.alternativa, props.alternativaCorreta]);
 
 
     return (

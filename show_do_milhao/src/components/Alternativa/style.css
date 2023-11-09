@@ -4,7 +4,8 @@
 }
 
 .vermelho{
-    background-color: red;
+    /* background-color: red; */
+    background: linear-gradient(#fc3f60 0%, #dd251a 33.33%, #b32e3c 66.67%, #fc3f60 100%);
     margin-bottom: 40px;
     border: 2px solid #000;
     border-radius: 10px;
@@ -30,4 +31,5 @@
     height: 50px;
     width: 100%;
     margin-right: 20px;
+
 }
