@@ -55,6 +55,8 @@ function App() {
     setAlternativaSelecionada(opcaoSelecionada);
     console.log(alternativaCorreta)
   }
+
+  //teste
   
   useEffect(() => {
     let escolha = getRandomInt(0,listaDePerguntas.length)
@@ -69,9 +71,7 @@ function App() {
   
   return (
     <div className='container'>
-
       <div className='pergunta'>
-
         <Pergunta pergunta={pergunta.pergunta} />
       </div>
 
@@ -98,7 +98,6 @@ function App() {
           />
         </div>
       </div>
-
     </div>
   );
 }
