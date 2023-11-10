@@ -155,15 +155,17 @@ function App() {
 
   //teste
   
-  useEffect(() => {
+  function escolhe_pergunta_aletoria(){
     let escolha = getRandomInt(0,listaDePerguntas.length)
     console.log(listaDePerguntas.length)
     while(listaDePerguntas[escolha].perguntaEscolhida){
        escolha = getRandomInt(0,listaDePerguntas.length)
     }
     setPergunta(listaDePerguntas[escolha])
-    let index = escolha
+  }
   
+  useEffect(() => {
+    escolhe_pergunta_aletoria()
   },[]);
   
   return (
