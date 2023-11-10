@@ -6,7 +6,7 @@ import Pergunta from './components/Pergunta';
 
 function App() {
 
-  let listaDePerguntas = [
+  let listaDePerguntasFacil = [
     {
       "pergunta": 'Qual é a capital do Brasil?',
       "alternativas": ['Rio de Janeiro', 'Brasília', 'Bahia', 'São Paulo'],
@@ -16,8 +16,48 @@ function App() {
       "pergunta" : "Qual é o coletivo de cães?",
       "alternativas" : ['Matilha', 'Rebanho', 'Alcateia', 'Manada'],
       "respostaCerta" : 'Matilha',
-    }
-  ] //Carregar as perguntas;
+    },
+    {
+      "pergunta" : "Seguindo a sequência do baralho, qual carta vem depois do dez?",
+      "alternativas" : ['Rei', 'Valete', 'Nove', 'As'],
+      "respostaCerta" : 'Valete',
+    },
+    {
+      "pergunta" : "Qual é o maior planeta do Sistema Solar?",
+      "alternativas" : ['Terra', 'Jupiter', 'Urano', 'Saturno'],
+      "respostaCerta" : 'Jupiter',
+    },
+    {
+      "pergunta" : " Que atleta é o detentor do recorde de medalhas olímpicas?",
+      "alternativas" : ['Mark Spitz', 'Michael Phelps', 'Usain Bolt', 'Larissa Latynina'],
+      "respostaCerta" : 'Michael Phelps',
+    },
+   
+  ]
+    let listaDePerguntasMedio =[
+    {
+      "pergunta" : " Qual bicho transmite Doença de Chagas?",
+      "alternativas" : ['Abelha', 'Barata', 'Pulga', 'Barbeiro'],
+      "respostaCerta" : 'Barbeiro',
+    },
+    {
+      "pergunta" : " Qual o primeiro time brasileiro a pertimitir jogadores negros?",
+      "alternativas" : ['Santos', 'Vasco', 'Bahia', 'Flamengo'],
+      "respostaCerta" : 'Vasco',
+    },
+    {
+      "pergunta" : " Quem compôs o Hino da Independência?",
+      "alternativas" : ['Dom Pedro I', 'Manuel bandeira', 'Castro Alvez', 'Carlos Gomes'],
+      "respostaCerta" : 'Dom Pedro I',
+    },
+    {
+      "pergunta" : " Em que parte do corpo se encontra a epiglote?",
+      "alternativas" : ['Estômago', 'Pâncreas', 'Rim', 'Boca'],
+      "respostaCerta" : 'Boca',
+    },
+    
+
+    ] //Carregar as perguntas;
   const [pergunta, setPergunta] = useState(
     {
       'pergunta': 'Qual é a capital do Brasil?',
