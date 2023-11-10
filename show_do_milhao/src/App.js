@@ -11,6 +11,11 @@ function App() {
       "pergunta": 'Qual é a capital do Brasil?',
       "alternativas": ['Rio de Janeiro', 'Brasília', 'Bahia', 'São Paulo'],
       "respostaCerta": 'Brasília',
+    },
+    {
+      "pergunta" : "Qual é o coletivo de cães?",
+      "alternativas" : ['Matilha', 'Rebanho', 'Alcateia', 'Manada'],
+      "respostaCerta" : 'Matilha',
     }
   ] //Carregar as perguntas;
   const [pergunta, setPergunta] = useState(
