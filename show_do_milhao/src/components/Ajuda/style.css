@@ -38,6 +38,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
+    
 }
 
 .errar,
@@ -45,6 +46,11 @@
     background-color: yellow;
     padding: 20px;
     border-radius: 10px;
+}
+
+.erra,
+.acertar button {
+    color: black;
 }
 
 .btn_parar {
@@ -60,6 +66,12 @@
     align-items: center;
     cursor: pointer;
     border: none;
+    color: black;
+}
+.div_letras{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 
