@@ -1,0 +1,48 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: black;
+    font-size: 20px;
+    
+}
+
+body{
+    background: linear-gradient(#1354A5 0%, #4d79ca 33.33%, #396ed1 66.67%, #1a1dc2 100%);
+    height: 100vh;
+}
+
+.quadro_de_valores{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+}
+
+.fileira_1{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.fileira_2{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.fileira_3{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+.fileira_4{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
