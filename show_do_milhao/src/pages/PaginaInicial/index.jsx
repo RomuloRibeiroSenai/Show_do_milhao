@@ -1,6 +1,8 @@
 import logo from '../../assets/logo.png';
+// import comeco from '../../assets/sons/comeco.mp3'
 import './style.css';
 import { useNavigate } from "react-router-dom";
+
 
 export default function PaginaInicial (){
 
