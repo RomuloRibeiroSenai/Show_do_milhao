@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: black;
+    font-size: 20px;
+    
+}
+
+body{
+    background: linear-gradient(#1354A5 0%, #4d79ca 33.33%, #396ed1 66.67%, #1a1dc2 100%);
+    height: 100vh;
+}
+
+.giffy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 100vw;
+}

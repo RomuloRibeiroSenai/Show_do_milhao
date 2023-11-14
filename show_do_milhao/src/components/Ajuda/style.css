@@ -54,6 +54,11 @@
     border-radius: 10px;
 }
 
+.erra,
+.acertar button {
+    color: black;
+}
+
 .btn_parar {
     display: flex;
 }
@@ -67,6 +72,12 @@
     align-items: center;
     cursor: pointer;
     border: none;
+    color: black;
+}
+.div_letras{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .ajuste_letras{
     display: flex;

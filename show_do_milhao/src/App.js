@@ -149,8 +149,8 @@ function App() {
 
   function aoConfirmar() {
     if (alternativaSelecionada == pergunta.respostaCerta) {
-      pergunta.perguntaEscolhida = true;
-      
+      let novalista = [...listaDePerguntasFacil];
+      pergunta.perguntaEscolhida = true;      
       if (nivel == 1) {
         setListaDePerguntasFacil((prevList) => {
           const newList = [...prevList];
@@ -194,14 +194,14 @@ function App() {
       console.log(alternativaSelecionada == pergunta.respostaCerta)
     }
 
-    setAlternativaCorreta(pergunta.respostaCerta);
   }
-  
+
   function aoSelecionar(opcaoSelecionada) {
     console.log(opcaoSelecionada);
     setAlternativaSelecionada(opcaoSelecionada);
     console.log(alternativaCorreta)
   }
+
 
   function valor_concorrendo(){
     // let i = 0;
@@ -270,7 +270,7 @@ function App() {
   useEffect(() => {
     escolhe_pergunta_aletoria();
   }, [listaDePerguntasMilhao]);
-
+  
   return (
     <div className='container'>
       <div className='pergunta'>
