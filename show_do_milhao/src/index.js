@@ -6,11 +6,19 @@ import reportWebVitals from './reportWebVitals';
 import PaginaInicial from './pages/PaginaInicial';
 import Errou from './pages/Errou';
 import Ganhou from './pages/Ganhou';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Ganhou />
+    <BrowserRouter>
+      <Routes>
+        <Route path= "/" element={<PaginaInicial />}/>
+        <Route path='/jogo' element={<App />} />
+        <Route path='/vitoria' element={<Ganhou />} />
+        <Route path='/derrota' element={<Errou />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

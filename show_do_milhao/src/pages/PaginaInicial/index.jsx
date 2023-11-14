@@ -1,7 +1,14 @@
 import logo from '../../assets/logo.png';
 import './style.css';
+import { useNavigate } from "react-router-dom";
 
 export default function PaginaInicial (){
+
+    const navigate = useNavigate();
+
+    function iniciar(){
+        navigate("/jogo")
+    }
 
     return(
         <>
@@ -10,7 +17,7 @@ export default function PaginaInicial (){
     </div>
 
     <div className='iniciar'>
-        <button className='inicio'> INICIAR </button>
+        <button className='inicio' onClick={iniciar}> INICIAR </button>
 
     </div>
 
