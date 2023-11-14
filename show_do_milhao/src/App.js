@@ -6,7 +6,7 @@ import Pergunta from './components/Pergunta';
 
 function App() {
 
-  let listaDePerguntasFacil = [
+  const [listaDePerguntasFacil, setListaDePerguntasFacil] = useState([
     {
       "pergunta": 'Qual é a capital do Brasil?',
       "alternativas": ['Rio de Janeiro', 'Brasília', 'Bahia', 'São Paulo'],
@@ -38,8 +38,8 @@ function App() {
       "perguntaEscolhida": false
     },
 
-  ]
-  let listaDePerguntasMedio = [
+  ])
+  const [listaDePerguntasMedio, setListaDePerguntasMedio] = useState([
     {
       "pergunta": " Qual bicho transmite Doença de Chagas?",
       "alternativas": ['Abelha', 'Barata', 'Pulga', 'Barbeiro'],
@@ -66,8 +66,8 @@ function App() {
     },
 
 
-  ]
-  let listaDePerguntasDificil = [
+  ])
+  const [listaDePerguntasDificil, setListaDePerguntasDificil] = useState([
     {
       "pergunta": "Qual foi o primeiro país da América a declarar sua independência de uma potência europeia?",
       "alternativas": ['Estados Unidos', 'Brasil', 'Colômbia', 'Argentina'],
@@ -93,8 +93,8 @@ function App() {
       "perguntaEscolhida": false
     },
 
-  ]
-  let listaDePerguntasMilhao = [
+  ])
+  const [listaDePerguntasMilhao, setListaDePerguntasMilhao] = useState([
     {
       "pergunta": "Em que dia nasceu e em que dia foi registrado o Presidente Lula?",
       "alternativas": ['6 e 27 de outubro', '8 e 27 de outubro', '9 e 26 de outubro', '7 e 23 de outubro'],
@@ -119,24 +119,27 @@ function App() {
       "respostaCerta": 'Yasuke',
       "perguntaEscolhida": false
     },
-  ] //Carregar as perguntas;
+  ]) //Carregar as perguntas;
 
   const [pergunta, setPergunta] = useState(
     {
-      'pergunta': 'Qual é a capital do Brasil?',
-      'alternativas': ['Rio de Janeiro', 'Brasília', 'Bahia', 'São Paulo'],
-      'respostaCerta': 'Brasília',
+      'pergunta': '',
+      'alternativas': [],
+      'respostaCerta': '',
       "perguntaEscolhida": false
     }
   );
 
 
 
-  const [perguntaAtual, setPerguntaAtual] = useState(0);
+  const [perguntaAtual, setPerguntaAtual] = useState(1);
   const [alternativaSelecionada, setAlternativaSelecionada] = useState(null);
-  const [indexSelecionado, setIndexSelecionado] = useState(null);
   const [alternativaCorreta, setAlternativaCorreta] = useState(false);
+  const [nivel, setNivel] = useState(1);
+  const [valorAcerto, setValorAcerto] = useState([1000, 1000, 2000, 3000, 5000, 10000, 30000, 50000, 100000, 200000, 1000000]);
+  const [index_valor, setIndex_valor] = useState(1)
 
+  let index = 0
 
   function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -147,35 +150,126 @@ function App() {
   function aoConfirmar() {
     if (alternativaSelecionada == pergunta.respostaCerta) {
       pergunta.perguntaEscolhida = true;
-      listaDePerguntas[index].perguntaEscolhida = pergunta.perguntaEscolhida
+      
+      if (nivel == 1) {
+        setListaDePerguntasFacil((prevList) => {
+          const newList = [...prevList];
+          newList[index].perguntaEscolhida = true;
+          return newList;
+        });
+      } else if (nivel == 2) {
+        setListaDePerguntasMedio((prevList) => {
+          const newList = [...prevList];
+          newList[index].perguntaEscolhida = true;
+          return newList;
+        });
+      } else if (nivel == 3) {
+        setListaDePerguntasDificil((prevList) => {
+          const newList = [...prevList];
+          newList[index].perguntaEscolhida = true;
+          return newList;
+        });
+      } else if (nivel == 4) {
+        setListaDePerguntasMilhao((prevList) => {
+          const newList = [...prevList];
+          newList[index].perguntaEscolhida = true;
+          return newList;
+        });
+      } 
+      if (perguntaAtual == 3) {
+        setPerguntaAtual(1)
+        setNivel(nivel + 1)
+      }
+      else {
+        if(nivel == 4){
+          setNivel(5)
+        }else {
+        setPerguntaAtual(perguntaAtual + 1)
+      }
+      }
       console.log("Parabéns vc acertou!")
+      valor_concorrendo();
+      console.log(index_valor)
     } else {
       console.log(alternativaSelecionada == pergunta.respostaCerta)
     }
 
     setAlternativaCorreta(pergunta.respostaCerta);
   }
-
+  
   function aoSelecionar(opcaoSelecionada) {
     console.log(opcaoSelecionada);
     setAlternativaSelecionada(opcaoSelecionada);
     console.log(alternativaCorreta)
   }
 
-  //teste
+  function valor_concorrendo(){
+    // let i = 0;
+   
+    //   if(acertou){
+    //     setValorAcertar(valorAcerto[i]);
+    //     setValorParar(valorAcerto[i-1]);
+    //     setValorErro((valorParar)/2);
+    //     setAcertou(false);
+
+    //     i++;
+        
+    //   }
+
+    setIndex_valor(index_valor + 1)
+
+  }
 
   function escolhe_pergunta_aletoria() {
-    let escolha = getRandomInt(0, listaDePerguntas.length)
-    console.log(listaDePerguntas.length)
-    while (listaDePerguntas[escolha].perguntaEscolhida) {
-      escolha = getRandomInt(0, listaDePerguntas.length)
+
+    setTimeout(() =>{
+    if (nivel == 1) {
+      let escolha = getRandomInt(0, listaDePerguntasFacil.length)
+      while (listaDePerguntasFacil[escolha].perguntaEscolhida) {
+        escolha = getRandomInt(0, listaDePerguntasFacil.length)
+      }
+      setPergunta(listaDePerguntasFacil[escolha])
     }
-    setPergunta(listaDePerguntas[escolha])
+    else if (nivel == 2) {
+      let escolha = getRandomInt(0, listaDePerguntasMedio.length)
+      while (listaDePerguntasMedio[escolha].perguntaEscolhida) {
+        escolha = getRandomInt(0, listaDePerguntasMedio.length)
+      }
+      setPergunta(listaDePerguntasMedio[escolha])
+    }
+    else if (nivel == 3) {
+      let escolha = getRandomInt(0, listaDePerguntasDificil.length)
+      while (listaDePerguntasDificil[escolha].perguntaEscolhida) {
+        escolha = getRandomInt(0, listaDePerguntasDificil.length)
+      }
+      setPergunta(listaDePerguntasDificil[escolha])
+    }
+    else if (nivel == 4) {
+      let escolha = getRandomInt(0, listaDePerguntasMilhao.length)
+      while (listaDePerguntasMilhao[escolha].perguntaEscolhida) {
+        escolha = getRandomInt(0, listaDePerguntasMilhao.length)
+      }
+      setPergunta(listaDePerguntasMilhao[escolha])
+
+    }
+    else if (nivel == 5){
+        console.log("weeeeeeeee")
+    }
+  },2000);
   }
 
   useEffect(() => {
-    escolhe_pergunta_aletoria()
-  }, []);
+    escolhe_pergunta_aletoria();
+  }, [listaDePerguntasFacil]);
+  useEffect(() => {
+    escolhe_pergunta_aletoria();
+  }, [listaDePerguntasMedio]);
+  useEffect(() => {
+    escolhe_pergunta_aletoria();
+  }, [listaDePerguntasDificil]);
+  useEffect(() => {
+    escolhe_pergunta_aletoria();
+  }, [listaDePerguntasMilhao]);
 
   return (
     <div className='container'>
@@ -200,9 +294,9 @@ function App() {
 
         <div className='ajuda'>
           <Ajuda
-            valorErro='500'
-            valorParar='1000'
-            valorAcertar='2000'
+            valorErro= {(valorAcerto[index_valor - 1] / 2)}
+            valorParar={valorAcerto[index_valor - 1]}
+            valorAcertar={valorAcerto[index_valor]}
           />
         </div>
       </div>

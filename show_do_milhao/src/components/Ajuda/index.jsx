@@ -21,20 +21,23 @@ export default function Ajuda(props){
             <div className="premiacao">
 
                 <div className="errar">
-                    <p>{props.valorErro}</p>
+                    <p>R${props.valorErro}</p>
                 </div>
 
                 <div className="btn_parar">
-                    <button>{props.valorParar}</button>
+                    <button>R${props.valorParar}</button>
                 </div>
 
                 <div className="acertar">
-                    <p>{props.valorAcertar}</p>
+                    <p>R${props.valorAcertar}</p>
                 </div>
-
-
+                    
             </div>
-
+            <div className='ajuste_letras'>
+                <div>Errar</div>
+                <div>Parar</div>
+                <div>Acertar</div>
+            </div>
         </div>
     );
 }

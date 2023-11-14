@@ -38,6 +38,13 @@
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
+    color: black;
+}
+.premiacao p{
+    color: black;
+}
+.premiacao button {
+    color: black;
 }
 
 .errar,
@@ -61,7 +68,11 @@
     cursor: pointer;
     border: none;
 }
-
+.ajuste_letras{
+    display: flex;
+    justify-content: space-between;
+    margin-top: -5%;
+}
 
 
 
