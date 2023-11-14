@@ -5,7 +5,8 @@ export default function Valor(props) {
     return (
         <>
             <div className={cor}>
-                <h1 className= "valor" >{props.valor}</h1>
+                <h1 className= "valor" >
+                    {props.valor}</h1>
             </div>
         </>
     );
