@@ -12,6 +12,7 @@ export default function PaginaInicial (){
     const audio1 = useRef(null);
     const audio2 = useRef(null);
 
+
     function iniciar(){
 
         navigate("/jogo")
