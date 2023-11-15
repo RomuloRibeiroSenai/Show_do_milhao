@@ -1,6 +1,6 @@
 import './style.css'
-import uno2 from '../../assets/uno2.png'
-import canguru from '../../assets/canguru.png'
+import uno2 from '../../assets/imagens/uno2.png'
+import canguru from '../../assets/imagens/canguru.png'
 
 export default function Ajuda(props) {
     return (

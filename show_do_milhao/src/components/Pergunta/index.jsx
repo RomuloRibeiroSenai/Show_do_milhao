@@ -1,4 +1,4 @@
-import logo from '../../assets/logo.png';
+import logo from '../../assets/imagens/logo.png';
 import './style.css';
 export default function Pergunta(props) {
 

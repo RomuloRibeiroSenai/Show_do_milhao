@@ -134,7 +134,7 @@ function App() {
 
   const [perguntaAtual, setPerguntaAtual] = useState(1);
   const [alternativaSelecionada, setAlternativaSelecionada] = useState(null);
-  const [alternativaCorreta, setAlternativaCorreta] = useState(false);
+  const [alternativaCorreta, setAlternativaCorreta] = useState();
   const [nivel, setNivel] = useState(1);
   const [valorAcerto, setValorAcerto] = useState([1000, 1000, 2000, 3000, 5000, 10000, 30000, 50000, 100000, 200000, 1000000]);
   const [index_valor, setIndex_valor] = useState(1)
@@ -150,7 +150,7 @@ function App() {
   function aoConfirmar() {
     if (alternativaSelecionada == pergunta.respostaCerta) {
       let novalista = [...listaDePerguntasFacil];
-      pergunta.perguntaEscolhida = true;      
+      pergunta.perguntaEscolhida = true;
       if (nivel == 1) {
         setListaDePerguntasFacil((prevList) => {
           const newList = [...prevList];
@@ -175,7 +175,7 @@ function App() {
           newList[index].perguntaEscolhida = true;
           return newList;
         });
-      } 
+      }
       if (perguntaAtual == 3) {
         setPerguntaAtual(1)
         setNivel(nivel + 1)
@@ -188,6 +188,7 @@ function App() {
       }
       }
       console.log("Parabéns vc acertou!")
+      setAlternativaCorreta(pergunta.respostaCerta);
       valor_concorrendo();
       console.log(index_valor)
     } else {

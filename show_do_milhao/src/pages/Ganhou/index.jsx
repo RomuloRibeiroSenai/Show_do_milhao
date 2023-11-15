@@ -1,5 +1,5 @@
-import moedas from '../../assets/moedas.gif';
-import vitoria from '../../assets/vitoria.jpeg'
+import moedas from '../../assets/imagens/moedas.gif';
+import vitoria from '../../assets/imagens/vitoria.jpeg'
 import './style.css';
 
 export default function Ganhou (){

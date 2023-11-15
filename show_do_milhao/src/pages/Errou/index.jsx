@@ -1,4 +1,4 @@
-import errou from '../../assets/errou.gif';
+import errou from '../../assets/imagens/errou.gif';
 import './style.css';
 
 export default function Errou (){
