@@ -5,8 +5,9 @@ import certeza02 from './assets/sons/certeza02.mp3';
 import certo from './assets/sons/certo.mp3';
 import Ajuda from './components/Ajuda';
 import Alternativa from './components/Alternativa';
-import Pergunta from './components/Pergunta';
 import Modal from './components/Modal';
+import Pergunta from './components/Pergunta';
+
 
 function App() {
 
@@ -127,8 +128,8 @@ function App() {
 
   const [pergunta, setPergunta] = useState(
     {
-      'pergunta': '',
-      'alternativas': [],
+      'pergunta': 'carregando...',
+      'alternativas': ['carregando...'],
       'respostaCerta': '',
       "perguntaEscolhida": false
     }
@@ -144,8 +145,8 @@ function App() {
   const [index_valor, setIndex_valor] = useState(1);
   const navigate = useNavigate();
   const [mostrarModal, setMostrarModal] = useState(false);
-  //const audio = useRef([audio1, audio2, audio3]);
-  // const audio2 = useRef(null);
+  const audio = useRef(null);
+  const audio2 = useRef(null);
 
   let index = 0
 
@@ -197,21 +198,29 @@ function App() {
         }
       }
       console.log("Parabéns vc acertou!")
-      setAlternativaCorreta(pergunta.respostaCerta);
+
       valor_concorrendo();
-      //reproduzirAudio2();
+      reproduzirAudio(audio2);
       console.log(index_valor)
     } else {
-      console.log('errooou');
-      navigate('/derrota')
+
+      setTimeout(() => {
+        console.log('errooou');
+        navigate('/derrota')
+
+      }, 2000);
+
+
     }
+
+    setAlternativaCorreta(pergunta.respostaCerta);
 
   }
 
   function aoSelecionar(opcaoSelecionada) {
     console.log(opcaoSelecionada);
     setAlternativaSelecionada(opcaoSelecionada);
-   // reproduzirAudio();
+    reproduzirAudio(audio);
 
     console.log(alternativaCorreta)
   }
@@ -223,73 +232,46 @@ function App() {
 
   }
 
-  // function escolhe_pergunta_aletoria() {
+  function escolhe_pergunta_aletoria() {
 
-  //   setTimeout(() =>{
-  //   if (nivel == 1) {
-  //     let escolha = getRandomInt(0, listaDePerguntasFacil.length)
-  //     while (listaDePerguntasFacil[escolha].perguntaEscolhida) {
-  //       escolha = getRandomInt(0, listaDePerguntasFacil.length)
-  //     }
-  //     setPergunta(listaDePerguntasFacil[escolha])
-  //   }
-  //   else if (nivel == 2) {
-  //     let escolha = getRandomInt(0, listaDePerguntasMedio.length)
-  //     while (listaDePerguntasMedio[escolha].perguntaEscolhida) {
-  //       escolha = getRandomInt(0, listaDePerguntasMedio.length)
-  //     }
-  //     setPergunta(listaDePerguntasMedio[escolha])
-  //   }
-  //   else if (nivel == 3) {
-  //     let escolha = getRandomInt(0, listaDePerguntasDificil.length)
-  //     while (listaDePerguntasDificil[escolha].perguntaEscolhida) {
-  //       escolha = getRandomInt(0, listaDePerguntasDificil.length)
-  //     }
-  //     setPergunta(listaDePerguntasDificil[escolha])
-  //   }
-  //   else if (nivel == 4) {
-  //     let escolha = getRandomInt(0, listaDePerguntasMilhao.length)
-  //     while (listaDePerguntasMilhao[escolha].perguntaEscolhida) {
-  //       escolha = getRandomInt(0, listaDePerguntasMilhao.length)
-  //     }
-  //     setPergunta(listaDePerguntasMilhao[escolha])
-
-  //   }
-  //   else if (nivel == 5){
-  //       console.log("weeeeeeeee")
-  //   }
-  // },2000);
-  // }
-
-  function escolhe_pergunta_aletoria(nivel, perguntaAtual) {
-    setTimeout(() => {
-      let listaPerguntas;
-      switch (nivel) {
-        case 1:
-          listaPerguntas = listaDePerguntasFacil;
-          break;
-        case 2:
-          listaPerguntas = listaDePerguntasMedio;
-          break;
-        case 3:
-          listaPerguntas = listaDePerguntasDificil;
-          break;
-        case 4:
-          listaPerguntas = listaDePerguntasMilhao;
-          break;
-        default:
-          // Lidar com outros casos se necessário
-          break;
+    setTimeout(() =>{
+    if (nivel == 1) {
+      let escolha = getRandomInt(0, listaDePerguntasFacil.length)
+      while (listaDePerguntasFacil[escolha].perguntaEscolhida) {
+        escolha = getRandomInt(0, listaDePerguntasFacil.length)
       }
-
-      let escolha = getRandomInt(0, listaPerguntas.length);
-      while (listaPerguntas[escolha].perguntaEscolhida) {
-        escolha = getRandomInt(0, listaPerguntas.length);
+      setPergunta(listaDePerguntasFacil[escolha])
+    }
+    else if (nivel == 2) {
+      let escolha = getRandomInt(0, listaDePerguntasMedio.length)
+      while (listaDePerguntasMedio[escolha].perguntaEscolhida) {
+        escolha = getRandomInt(0, listaDePerguntasMedio.length)
       }
-      setPergunta(listaPerguntas[escolha]);
-      setMostrarModal(true);
-    }, 2000);
+      setPergunta(listaDePerguntasMedio[escolha])
+    }
+    else if (nivel == 3) {
+      let escolha = getRandomInt(0, listaDePerguntasDificil.length)
+      while (listaDePerguntasDificil[escolha].perguntaEscolhida) {
+        escolha = getRandomInt(0, listaDePerguntasDificil.length)
+      }
+      setPergunta(listaDePerguntasDificil[escolha])
+    }
+    else if (nivel == 4) {
+      let escolha = getRandomInt(0, listaDePerguntasMilhao.length);
+      while (listaDePerguntasMilhao[escolha].perguntaEscolhida) {
+        escolha = getRandomInt(0, listaDePerguntasMilhao.length);
+      }
+      setPergunta(listaDePerguntasMilhao[escolha]);
+    }
+    else if (nivel == 5){
+      //navigate("/vitoria")
+        console.log("weeeeeeeee")
+    }
+    setMostrarModal(true);
+
+  },2000);
   }
+
 
   useEffect(() => {
     escolhe_pergunta_aletoria(nivel, perguntaAtual);
@@ -308,19 +290,15 @@ function App() {
   //   escolhe_pergunta_aletoria();
   // }, [listaDePerguntasMilhao]);
 
-  // const reproduzirAudio = () => {
-  //   if (audio[0].current) {
-  //     audio[0].current.play();
-  //   };
-  // }
 
-  // const reproduzirAudio2 = () => {
-  //   if (audio[1].current) {
-  //     audio[1].current.play();
-  //   }
-  // }
+  function reproduzirAudio(musica) {
+    if (musica.current) {
+      musica.current.play();
+    }
 
-  function fecharModal(){
+  }
+
+  function fecharModal() {
     setMostrarModal(false);
   }
 
@@ -340,10 +318,10 @@ function App() {
               alternativaSelecionada={alternativaSelecionada}
               alternativaCorreta={alternativaCorreta} />
           ))}
-          {/* <audio ref={audio[0]} src={certeza02} type='audio/mp3'></audio> */}
+          <audio ref={audio} src={certeza02} type='audio/mp3'></audio>
           <div className='bt_confirmar'>
             <button onClick={aoConfirmar}>Confirmar</button>
-            {/* <audio ref={audio[1]} src={certo} type='audio/mp3'></audio> */}
+            <audio ref={audio2} src={certo} type='audio/mp3'></audio>
           </div>
         </div>
 
@@ -356,7 +334,7 @@ function App() {
         </div>
       </div>
       {mostrarModal && (
-        <Modal fechar = {fecharModal}/>
+        <Modal fechar={fecharModal} />
       )}
     </div>
   );
