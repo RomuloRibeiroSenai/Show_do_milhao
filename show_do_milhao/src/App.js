@@ -6,6 +6,7 @@ import certo from './assets/sons/certo.mp3';
 import Ajuda from './components/Ajuda';
 import Alternativa from './components/Alternativa';
 import Pergunta from './components/Pergunta';
+import Modal from './components/Modal';
 
 function App() {
 
@@ -142,7 +143,8 @@ function App() {
   const [valorAcerto, setValorAcerto] = useState([1000, 1000, 2000, 3000, 5000, 10000, 30000, 50000, 100000, 200000, 1000000]);
   const [index_valor, setIndex_valor] = useState(1);
   const navigate = useNavigate();
-  const audio = useRef([audio1, audio2, audio3]);
+  const [mostrarModal, setMostrarModal] = useState(false);
+  //const audio = useRef([audio1, audio2, audio3]);
   // const audio2 = useRef(null);
 
   let index = 0
@@ -197,7 +199,7 @@ function App() {
       console.log("Parabéns vc acertou!")
       setAlternativaCorreta(pergunta.respostaCerta);
       valor_concorrendo();
-      reproduzirAudio2();
+      //reproduzirAudio2();
       console.log(index_valor)
     } else {
       console.log('errooou');
@@ -209,7 +211,7 @@ function App() {
   function aoSelecionar(opcaoSelecionada) {
     console.log(opcaoSelecionada);
     setAlternativaSelecionada(opcaoSelecionada);
-    reproduzirAudio();
+   // reproduzirAudio();
 
     console.log(alternativaCorreta)
   }
@@ -285,6 +287,7 @@ function App() {
         escolha = getRandomInt(0, listaPerguntas.length);
       }
       setPergunta(listaPerguntas[escolha]);
+      setMostrarModal(true);
     }, 2000);
   }
 
@@ -305,16 +308,20 @@ function App() {
   //   escolhe_pergunta_aletoria();
   // }, [listaDePerguntasMilhao]);
 
-  const reproduzirAudio = () => {
-    if (audio1.current) {
-      audio1.current.play();
-    };
-  }
+  // const reproduzirAudio = () => {
+  //   if (audio[0].current) {
+  //     audio[0].current.play();
+  //   };
+  // }
 
-  const reproduzirAudio2 = () => {
-    if (audio2.current) {
-      audio2.current.play();
-    }
+  // const reproduzirAudio2 = () => {
+  //   if (audio[1].current) {
+  //     audio[1].current.play();
+  //   }
+  // }
+
+  function fecharModal(){
+    setMostrarModal(false);
   }
 
   return (
@@ -333,10 +340,10 @@ function App() {
               alternativaSelecionada={alternativaSelecionada}
               alternativaCorreta={alternativaCorreta} />
           ))}
-          <audio ref={audio1} src={certeza02} type='audio/mp3'></audio>
+          {/* <audio ref={audio[0]} src={certeza02} type='audio/mp3'></audio> */}
           <div className='bt_confirmar'>
             <button onClick={aoConfirmar}>Confirmar</button>
-            <audio ref={audio2} src={certo} type='audio/mp3'></audio>
+            {/* <audio ref={audio[1]} src={certo} type='audio/mp3'></audio> */}
           </div>
         </div>
 
@@ -348,6 +355,9 @@ function App() {
           />
         </div>
       </div>
+      {mostrarModal && (
+        <Modal fechar = {fecharModal}/>
+      )}
     </div>
   );
 

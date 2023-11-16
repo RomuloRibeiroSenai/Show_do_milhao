@@ -6,8 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import PaginaInicial from './pages/PaginaInicial';
 import Errou from './pages/Errou';
 import Ganhou from './pages/Ganhou';
-import Trilha from './components/Trilha'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Modal from './components/Modal';
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,7 +16,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path= "/" element={<PaginaInicial />}/>
-        <Route path='/trilha' element={<Trilha/>}/>
+        <Route path='/trilha' element={<Modal/>}/>
         <Route path='/jogo' element={<App />} />
         <Route path='/vitoria' element={<Ganhou />} />
         <Route path='/derrota' element={<Errou />} />
