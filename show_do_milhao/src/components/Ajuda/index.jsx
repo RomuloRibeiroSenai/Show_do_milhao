@@ -3,12 +3,14 @@ import uno2 from '../../assets/imagens/uno2.png'
 import canguru from '../../assets/imagens/canguru.png'
 
 export default function Ajuda(props) {
+
+
     return (
         <div className="ajuda01">
 
             <div className="opcoes_ajuda">
                 <div className="pular">
-                    <img src={canguru} alt="imagem de canguru para pular " />
+                    <img src={canguru} alt="imagem de canguru para pular " onClick={props.pulou} />
                     <p>pular</p>
                 </div>
 

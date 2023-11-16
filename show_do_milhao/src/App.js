@@ -143,6 +143,7 @@ function App() {
   const [nivel, setNivel] = useState(1);
   const [valorAcerto, setValorAcerto] = useState([1000, 1000, 2000, 3000, 5000, 10000, 30000, 50000, 100000, 200000, 1000000]);
   const [index_valor, setIndex_valor] = useState(1);
+  const [elimina2, setElimina2] = useState (false);
   const navigate = useNavigate();
   const [mostrarModal, setMostrarModal] = useState(false);
   const audio = useRef(null);
@@ -271,11 +272,10 @@ function App() {
 
   },2000);
   }
+  const [pular,setPular] = useState(false);
 
 
-  useEffect(() => {
-    escolhe_pergunta_aletoria(nivel, perguntaAtual);
-  }, [listaDePerguntasFacil, listaDePerguntasMedio, listaDePerguntasDificil, listaDePerguntasMilhao]);
+ 
 
   // useEffect(() => {
   //   escolhe_pergunta_aletoria();
@@ -301,6 +301,39 @@ function App() {
   function fecharModal() {
     setMostrarModal(false);
   }
+  function randerizaAlternativa() {
+    // criar um state global de array que vai levar as alternativas filtradas.
+    // criar um devio condicional que vai olhar para o state elimina2 (true ou falso)
+    // se true, ou seja, para eliminar 2 alternativas criar um algoritmo que jogue para dentro do state de array 
+    // 2 alternativas, sendo 1 correta
+    // se false jogar para dentro deste array as 4 alternativas
+
+
+    return(
+      <>
+        {pergunta.alternativas.map((alternativa, index) => (
+          <Alternativa alternativa={alternativa}
+            index={index}
+            onClick={aoSelecionar}
+            alternativaSelecionada={alternativaSelecionada}
+            alternativaCorreta={alternativaCorreta} />
+        ))}
+      </>
+    );
+  }
+
+  function pulou(){
+    setPular(true)
+    console.log(pular)
+}
+
+  useEffect(() =>{
+    randerizaAlternativa()
+  },[elimina2]);
+
+  useEffect(() => {
+    escolhe_pergunta_aletoria(nivel, perguntaAtual);
+  }, [listaDePerguntasFacil, listaDePerguntasMedio, listaDePerguntasDificil, listaDePerguntasMilhao,pular]);
 
   return (
     <div className='container'>
@@ -311,13 +344,7 @@ function App() {
 
       <div className='resposta'>
         <div className='opcoes'>
-          {pergunta.alternativas.map((alternativa, index) => (
-            <Alternativa alternativa={alternativa}
-              index={index}
-              onClick={aoSelecionar}
-              alternativaSelecionada={alternativaSelecionada}
-              alternativaCorreta={alternativaCorreta} />
-          ))}
+          {randerizaAlternativa()}
           <audio ref={audio} src={certeza02} type='audio/mp3'></audio>
           <div className='bt_confirmar'>
             <button onClick={aoConfirmar}>Confirmar</button>
@@ -330,6 +357,7 @@ function App() {
             valorErro={(valorAcerto[index_valor - 1] / 2)}
             valorParar={valorAcerto[index_valor - 1]}
             valorAcertar={valorAcerto[index_valor]}
+            pulou = {pulou}
           />
         </div>
       </div>
