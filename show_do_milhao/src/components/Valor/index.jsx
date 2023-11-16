@@ -1,27 +1,41 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './style.css';
 export default function Valor(props) {
     const [cor, setCor] = useState ('dourado');
     const [identificador, setIdentificador] = useState('');
+    const audio = useRef(null);
+    const [tocarAudio, setTocarAudio] = useState(false);
 
-    useEffect(() =>{
-        if(props.voltar){
-            setCor('cinza');
-        }
-    }, [props.voltar, props.fechar]);
+    useEffect(() => {
+        const fimDoAudio = () => {
+            if (props.voltar) {
+                props.voltar();
+            }
+        };
 
-    useEffect(() =>{
-        if(props.milhao){
-            setIdentificador('milhao');
+        if (audio.current) {
+            audio.current.addEventListener('ended', fimDoAudio);
         }
-    })
+    }, [props.voltar]);
+
+    const aoClicar = () => {
+        setTocarAudio(true);
+    };
+
+    useEffect(() => {
+        if (tocarAudio && props.audio && audio.current) {
+            audio.current.play();
+        }
+    }, [tocarAudio, props.audio]);
 
 
 
     return (
         <>
             <div className='valor'>
-                <button id={identificador} className={props.cor} onClick={props.voltar}>{props.valor}</button>
+                <button id={identificador} className={props.cor} onClick={aoClicar}>{props.valor}</button>
+                {props.audio && <audio ref={audio} src={props.audio} type='audio/mp3'></audio>}
+
             </div>
         </>
     );
