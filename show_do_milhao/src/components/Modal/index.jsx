@@ -22,37 +22,32 @@ export default function Modal(props) {
                 <div className='conteudo'>
                     <div className='quadro_de_valores'>
                         <div className='fileira_1'>
-                            <Valor milhao = {true}  valor={"1 MILHÃO"} voltar={props.fechar} audio={p_um_milhao} />
+                            <Valor identificador='milhao' cor={'dourado'} valor={"1 MILHÃO"} voltar={props.fechar} audio={p_um_milhao} />
 
 
                         </div>
 
                         <div className='fileira_2'>
-                            <Valor cor = {'dourado'} valor={'100 MIL'} voltar={props.fechar} audio={k_cem_mil} />
-                            <Valor cor = {'dourado'} valor={'200 MIL'} voltar={props.fechar} audio={l_duzentos_mil} />
+                            <Valor cor={'dourado'} valor={'100 MIL'} voltar={props.fechar} audio={k_cem_mil} />
+                            <Valor cor={'dourado'} valor={'200 MIL'} voltar={props.fechar} audio={l_duzentos_mil} />
 
                         </div>
 
                         <div className='fileira_3'>
-                            <Valor cor = {'dourado'} valor={'10 MIL'} voltar={props.fechar} audio={f_dez_mil} />
-                            <Valor cor = {'dourado'} valor={'30 MIL'} voltar={props.fechar} audio={h_trinta_mil} />
-                            <Valor cor = {'dourado'} valor={'50 MIL'} voltar={props.fechar} audio={j_cinquenta_mil} />
+                            <Valor cor={'dourado'} valor={'10 MIL'} voltar={props.fechar} audio={f_dez_mil} />
+                            <Valor cor={'dourado'} valor={'30 MIL'} voltar={props.fechar} audio={h_trinta_mil} />
+                            <Valor cor={'dourado'} valor={'50 MIL'} voltar={props.fechar} audio={j_cinquenta_mil} />
                         </div>
 
                         <div className='fileira_4'>
-                            <Valor cor = {'dourado'} valor={'1 MIL'} voltar={props.fechar} audio={a_mil_reais} />
-                            <Valor cor = {'dourado'} valor={'1 MIL'} voltar={props.fechar} audio={aa_mil_reais} />
-                            <Valor cor = {'dourado'} valor={'3 MIL'} voltar={props.fechar}  audio={c_tres_mil}/>
-                            <Valor cor = {'dourado'} valor={'5 MIL'} voltar={props.fechar} audio={e_cinco_mil} />
+                            <Valor cor={'dourado'} valor={'1 MIL'} voltar={props.fechar} audio={a_mil_reais} />
+                            <Valor cor={'dourado'} valor={'1 MIL'} voltar={props.fechar} audio={aa_mil_reais} />
+                            <Valor cor={'dourado'} valor={'3 MIL'} voltar={props.fechar} audio={c_tres_mil} />
+                            <Valor cor={'dourado'} valor={'5 MIL'} voltar={props.fechar} audio={e_cinco_mil} />
                         </div>
-
-
-
-
-
-                    </div>
                 </div>
             </div>
+        </div >
 
         </>
     );

@@ -143,7 +143,7 @@ function App() {
   const [nivel, setNivel] = useState(1);
   const [valorAcerto, setValorAcerto] = useState([1000, 1000, 2000, 3000, 5000, 10000, 30000, 50000, 100000, 200000, 1000000]);
   const [index_valor, setIndex_valor] = useState(1);
-  const [elimina2, setElimina2] = useState (false);
+  const [elimina2, setElimina2] = useState(false);
   const navigate = useNavigate();
   const [mostrarModal, setMostrarModal] = useState(false);
   const audio = useRef(null);
@@ -235,44 +235,44 @@ function App() {
 
   function escolhe_pergunta_aletoria() {
 
-    setTimeout(() =>{
-    if (nivel == 1) {
-      let escolha = getRandomInt(0, listaDePerguntasFacil.length)
-      while (listaDePerguntasFacil[escolha].perguntaEscolhida) {
-        escolha = getRandomInt(0, listaDePerguntasFacil.length)
+    setTimeout(() => {
+      if (nivel == 1) {
+        let escolha = getRandomInt(0, listaDePerguntasFacil.length)
+        while (listaDePerguntasFacil[escolha].perguntaEscolhida) {
+          escolha = getRandomInt(0, listaDePerguntasFacil.length)
+        }
+        setPergunta(listaDePerguntasFacil[escolha])
       }
-      setPergunta(listaDePerguntasFacil[escolha])
-    }
-    else if (nivel == 2) {
-      let escolha = getRandomInt(0, listaDePerguntasMedio.length)
-      while (listaDePerguntasMedio[escolha].perguntaEscolhida) {
-        escolha = getRandomInt(0, listaDePerguntasMedio.length)
+      else if (nivel == 2) {
+        let escolha = getRandomInt(0, listaDePerguntasMedio.length)
+        while (listaDePerguntasMedio[escolha].perguntaEscolhida) {
+          escolha = getRandomInt(0, listaDePerguntasMedio.length)
+        }
+        setPergunta(listaDePerguntasMedio[escolha])
       }
-      setPergunta(listaDePerguntasMedio[escolha])
-    }
-    else if (nivel == 3) {
-      let escolha = getRandomInt(0, listaDePerguntasDificil.length)
-      while (listaDePerguntasDificil[escolha].perguntaEscolhida) {
-        escolha = getRandomInt(0, listaDePerguntasDificil.length)
+      else if (nivel == 3) {
+        let escolha = getRandomInt(0, listaDePerguntasDificil.length)
+        while (listaDePerguntasDificil[escolha].perguntaEscolhida) {
+          escolha = getRandomInt(0, listaDePerguntasDificil.length)
+        }
+        setPergunta(listaDePerguntasDificil[escolha])
       }
-      setPergunta(listaDePerguntasDificil[escolha])
-    }
-    else if (nivel == 4) {
-      let escolha = getRandomInt(0, listaDePerguntasMilhao.length);
-      while (listaDePerguntasMilhao[escolha].perguntaEscolhida) {
-        escolha = getRandomInt(0, listaDePerguntasMilhao.length);
+      else if (nivel == 4) {
+        let escolha = getRandomInt(0, listaDePerguntasMilhao.length);
+        while (listaDePerguntasMilhao[escolha].perguntaEscolhida) {
+          escolha = getRandomInt(0, listaDePerguntasMilhao.length);
+        }
+        setPergunta(listaDePerguntasMilhao[escolha]);
       }
-      setPergunta(listaDePerguntasMilhao[escolha]);
-    }
-    else if (nivel == 5){
-      //navigate("/vitoria")
+      else if (nivel == 5) {
+        //navigate("/vitoria")
         console.log("weeeeeeeee")
-    }
-    setMostrarModal(true);
+      }
+      setMostrarModal(true);
 
-  },2000);
+    }, 2000);
   }
-  const [pular,setPular] = useState(false);
+  const [pular, setPular] = useState(false);
 
 
 
@@ -286,42 +286,41 @@ function App() {
   function fecharModal() {
     setMostrarModal(false);
   }
+
+  function eliminarDuasAlternativas() {
+    const alternativasIncorretas = pergunta.alternativas.filter(alternativa => alternativa !== pergunta.respostaCerta);
+    const duasAlternativasEliminadas = alternativasIncorretas.slice(0, 2);
+    const novasAlternativas = pergunta.alternativas.filter(alternativa => duasAlternativasEliminadas.indexOf(alternativa) === -1);
+    setPergunta(prevPergunta => ({ ...prevPergunta, alternativas: novasAlternativas }));
+  }
+
   function randerizaAlternativa() {
-  //   // criar um state global de array que vai levar as alternativas filtradas.
-  //   // criar um devio condicional que vai olhar para o state elimina2 (true ou falso)
-  //   // se true, ou seja, para eliminar 2 alternativas criar um algoritmo que jogue para dentro do state de array 
-  //   // 2 alternativas, sendo 1 correta
-  //   // se false jogar para dentro deste array as 4 alternativas
+    //   // criar um state global de array que vai levar as alternativas filtradas.
+    //   // criar um devio condicional que vai olhar para o state elimina2 (true ou falso)
+    //   // se true, ou seja, para eliminar 2 alternativas criar um algoritmo que jogue para dentro do state de array 
+    //   // 2 alternativas, sendo 1 correta
+    //   // se false jogar para dentro deste array as 4 alternativas
 
-  //   if(duas){
-  //     let nova_pergunta = []
-  //     let nova_alternativa = 0
-  //     for (i = 0; i < pergunta.alternativas.length ; i++){
-  //       if (pergunta.alternativas[i] == pergunta.respostaCerta){
-  //         pergunta.alternativas[i] = nova_pergunta[0];
-  //         nova_alternativa++;
-  //         pergunta.alternativas[4] = nova_pergunta[1]
-  //       }
-  //     }
-  //     let nova = {
-  //       "pergunta": pergunta.pergunta,
-  //       'alternativas': nova_pergunta,
-  //       'respostaCerta': nova_pergunta[0],
-  //       "perguntaEscolhida": false
-  //     }
-  //     setPerguntaAtual(nova)
-
-  // function eliminarDuasAlternativas(){
-  //   const alternativasIncorretas = pergunta.alternativas.filter(alternativa => alternativa !== pergunta.respostaCerta);
-  //   const duasAlternativasEliminadas = alternativasIncorretas.slice(0, 2);
-  //   const novasAlternativas = pergunta.alternativas.filter(alternativa => duasAlternativasEliminadas.indexOf(alternativa) === -1);
-  //   setPergunta(prevPergunta => ({...prevPergunta, alternativas: novasAlternativas}));
-  // }
-    
-
-
-    return(
+    //   if(duas){
+    //     let nova_pergunta = []
+    //     let nova_alternativa = 0
+    //     for (i = 0; i < pergunta.alternativas.length ; i++){
+    //       if (pergunta.alternativas[i] == pergunta.respostaCerta){
+    //         pergunta.alternativas[i] = nova_pergunta[0];
+    //         nova_alternativa++;
+    //         pergunta.alternativas[4] = nova_pergunta[1]
+    //       }
+    //     }
+    //     let nova = {
+    //       "pergunta": pergunta.pergunta,
+    //       'alternativas': nova_pergunta,
+    //       'respostaCerta': nova_pergunta[0],
+    //       "perguntaEscolhida": false
+    //     }
+    //     setPerguntaAtual(nova)
+    return (
       <>
+
         {pergunta.alternativas.map((alternativa, index) => (
           <Alternativa alternativa={alternativa}
             index={index}
@@ -333,18 +332,18 @@ function App() {
     );
   }
 
-  function pulou(){
+  function pulou() {
     setPular(true)
     console.log(pular)
-}
+  }
 
-  // useEffect(() =>{
-  //   randerizaAlternativa()
-  // },[elimina2]);
+  useEffect(() => {
+    randerizaAlternativa()
+  }, [elimina2]);
 
   useEffect(() => {
     escolhe_pergunta_aletoria(nivel, perguntaAtual);
-  }, [listaDePerguntasFacil, listaDePerguntasMedio, listaDePerguntasDificil, listaDePerguntasMilhao,pular]);
+  }, [listaDePerguntasFacil, listaDePerguntasMedio, listaDePerguntasDificil, listaDePerguntasMilhao, pular]);
 
   return (
     <div className='container'>
@@ -355,6 +354,7 @@ function App() {
 
       <div className='resposta'>
         <div className='opcoes'>
+
           {randerizaAlternativa()}
           <audio ref={audio} src={certeza02} type='audio/mp3'></audio>
           <div className='bt_confirmar'>
@@ -368,13 +368,14 @@ function App() {
             valorErro={(valorAcerto[index_valor - 1] / 2)}
             valorParar={valorAcerto[index_valor - 1]}
             valorAcertar={valorAcerto[index_valor]}
-            pulou = {pulou}
-            // duas = {eliminarDuasAlternativas}
+            pulou={pulou}
+            duas={eliminarDuasAlternativas}
           />
         </div>
       </div>
       {mostrarModal && (
         <Modal fechar={fecharModal} />
+
       )}
     </div>
   );

@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import './style.css';
 export default function Valor(props) {
-    const [cor, setCor] = useState ('dourado');
-    const [identificador, setIdentificador] = useState('');
+    const [cor, setCor] = useState('dourado');
     const audio = useRef(null);
     const [tocarAudio, setTocarAudio] = useState(false);
+
 
     useEffect(() => {
         const fimDoAudio = () => {
@@ -20,7 +20,10 @@ export default function Valor(props) {
 
     const aoClicar = () => {
         setTocarAudio(true);
+        
     };
+
+
 
     useEffect(() => {
         if (tocarAudio && props.audio && audio.current) {
@@ -33,7 +36,13 @@ export default function Valor(props) {
     return (
         <>
             <div className='valor'>
-                <button id={identificador} className={props.cor} onClick={aoClicar}>{props.valor}</button>
+                <button
+                    id={props.identificador}
+                    className={props.cor}
+                    onClick={aoClicar}
+                    >
+                        {props.valor}
+                    </button>
                 {props.audio && <audio ref={audio} src={props.audio} type='audio/mp3'></audio>}
 
             </div>
