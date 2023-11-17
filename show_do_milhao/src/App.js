@@ -275,21 +275,6 @@ function App() {
   const [pular,setPular] = useState(false);
 
 
- 
-
-  // useEffect(() => {
-  //   escolhe_pergunta_aletoria();
-  // }, [listaDePerguntasFacil]);
-  // useEffect(() => {
-  //   escolhe_pergunta_aletoria();
-  // }, [listaDePerguntasMedio]);
-  // useEffect(() => {
-  //   escolhe_pergunta_aletoria();
-  // }, [listaDePerguntasDificil]);
-  // useEffect(() => {
-  //   escolhe_pergunta_aletoria();
-  // }, [listaDePerguntasMilhao]);
-
 
   function reproduzirAudio(musica) {
     if (musica.current) {
@@ -302,11 +287,37 @@ function App() {
     setMostrarModal(false);
   }
   function randerizaAlternativa() {
-    // criar um state global de array que vai levar as alternativas filtradas.
-    // criar um devio condicional que vai olhar para o state elimina2 (true ou falso)
-    // se true, ou seja, para eliminar 2 alternativas criar um algoritmo que jogue para dentro do state de array 
-    // 2 alternativas, sendo 1 correta
-    // se false jogar para dentro deste array as 4 alternativas
+  //   // criar um state global de array que vai levar as alternativas filtradas.
+  //   // criar um devio condicional que vai olhar para o state elimina2 (true ou falso)
+  //   // se true, ou seja, para eliminar 2 alternativas criar um algoritmo que jogue para dentro do state de array 
+  //   // 2 alternativas, sendo 1 correta
+  //   // se false jogar para dentro deste array as 4 alternativas
+
+  //   if(duas){
+  //     let nova_pergunta = []
+  //     let nova_alternativa = 0
+  //     for (i = 0; i < pergunta.alternativas.length ; i++){
+  //       if (pergunta.alternativas[i] == pergunta.respostaCerta){
+  //         pergunta.alternativas[i] = nova_pergunta[0];
+  //         nova_alternativa++;
+  //         pergunta.alternativas[4] = nova_pergunta[1]
+  //       }
+  //     }
+  //     let nova = {
+  //       "pergunta": pergunta.pergunta,
+  //       'alternativas': nova_pergunta,
+  //       'respostaCerta': nova_pergunta[0],
+  //       "perguntaEscolhida": false
+  //     }
+  //     setPerguntaAtual(nova)
+
+  // function eliminarDuasAlternativas(){
+  //   const alternativasIncorretas = pergunta.alternativas.filter(alternativa => alternativa !== pergunta.respostaCerta);
+  //   const duasAlternativasEliminadas = alternativasIncorretas.slice(0, 2);
+  //   const novasAlternativas = pergunta.alternativas.filter(alternativa => duasAlternativasEliminadas.indexOf(alternativa) === -1);
+  //   setPergunta(prevPergunta => ({...prevPergunta, alternativas: novasAlternativas}));
+  // }
+    
 
 
     return(
@@ -327,9 +338,9 @@ function App() {
     console.log(pular)
 }
 
-  useEffect(() =>{
-    randerizaAlternativa()
-  },[elimina2]);
+  // useEffect(() =>{
+  //   randerizaAlternativa()
+  // },[elimina2]);
 
   useEffect(() => {
     escolhe_pergunta_aletoria(nivel, perguntaAtual);
@@ -358,6 +369,7 @@ function App() {
             valorParar={valorAcerto[index_valor - 1]}
             valorAcertar={valorAcerto[index_valor]}
             pulou = {pulou}
+            // duas = {eliminarDuasAlternativas}
           />
         </div>
       </div>

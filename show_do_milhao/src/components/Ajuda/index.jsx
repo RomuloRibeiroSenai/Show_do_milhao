@@ -15,7 +15,7 @@ export default function Ajuda(props) {
                 </div>
 
                 <div className="eliminar_duas">
-                    <img src={uno2} alt="carta para remover 2 alternativas" />
+                    <img src={uno2} alt="carta para remover 2 alternativas" onClick={props.duas}/>
                     <p>eliminar duas</p>
                 </div>
             </div>
